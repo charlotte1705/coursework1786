@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Coursework</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_hike">Name of the hike<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
+    <string name="location_hike">Location<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
+    <string name="date_hike">Date of the hike<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
+    <string name="parking_hike">Parking available<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
+    <string name="length_hike">Length of the hike<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
+    <string name="level_hike">Difficulty of the hike<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
+</resources>
