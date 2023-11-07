@@ -2,17 +2,22 @@ package com.example.coursework;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.coursework.activities.ContactAdapter;
 import com.example.coursework.database.AppDatabase;
 import com.example.coursework.models.Hike;
 
@@ -48,6 +53,7 @@ public class AddFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     private AppDatabase appDatabase;
+    List<Hike> hikes;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,22 +64,51 @@ public class AddFragment extends Fragment {
                 .build();
 
         Button addDetailsBtn = view.findViewById(R.id.addDetailsBtn);
+        Spinner spinner = view.findViewById(R.id.planets_spinner);
         addDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveDetails();
             }
         });
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(), R.array.planets_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Handle the selected item
+                String selectedItem = adapter.getItem(position).toString();
+                // You can do something with the selected item here
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Handle the case where nothing is selected
+            }
+        });
+
+
+
+
+
+
 
         return view;
     }
+
+
+
+
+
 
     private void saveDetails(){
         EditText nameTxt = getView().findViewById(R.id.name_hike);
         EditText locationTxt = getView().findViewById(R.id.name_location);
         EditText dateTxt = getView().findViewById(R.id.date_hike);
         EditText lengthTxt = getView().findViewById(R.id.length_hike);
-        EditText levelTxt = getView().findViewById(R.id.level_hike);
+//        EditText levelTxt = getView().findViewById(R.id.level_hike);
+        Spinner levelSpinner = getView().findViewById(R.id.planets_spinner);
         EditText descriptionTxt = getView().findViewById(R.id.description_hike);
         RadioButton yes = getView().findViewById(R.id.radioYes);
         RadioButton no = getView().findViewById(R.id.radioNo);
@@ -91,7 +126,8 @@ public class AddFragment extends Fragment {
         String location = locationTxt.getText().toString();
         String date = dateTxt.getText().toString();
         String length = lengthTxt.getText().toString();
-        String level = levelTxt.getText().toString();
+//        String level = levelTxt.getText().toString();
+        String level = levelSpinner.getSelectedItem().toString();
         String description = descriptionTxt.getText().toString();
 
         Hike hike = new Hike();

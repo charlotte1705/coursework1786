@@ -8,4 +8,11 @@
     <string name="parking_hike">Parking available<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
     <string name="length_hike">Length of the hike<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
     <string name="level_hike">Difficulty of the hike<font color='#ff2400' textSize='15'><sup>*</sup></font></string>
+
+    <string-array name="planets_array">
+        <item>Difficult</item>
+        <item>Medium</item>
+        <item>Easy</item>
+    </string-array>
+
 </resources>

@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Add new hike"
+            android:text="Update new hike"
             android:textSize="30dp"
             android:textStyle="bold"/>
         <TextView
@@ -26,7 +26,7 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/name_hike"
+            android:id="@+id/update_name_hikeCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_data"
@@ -41,7 +41,7 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
         <EditText
-            android:id="@+id/name_location"
+            android:id="@+id/update_name_locationCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_data"
@@ -55,7 +55,7 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
         <EditText
-            android:id="@+id/date_hike"
+            android:id="@+id/update_date_hikeCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_data"
@@ -83,13 +83,13 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radioYes"
+                        android:id="@+id/update_radioYes"
                         android:layout_width="96dp"
                         android:layout_height="wrap_content"
                         android:text="Yes" />
 
                     <RadioButton
-                        android:id="@+id/radioNo"
+                        android:id="@+id/update_radioNo"
                         android:layout_width="92dp"
                         android:layout_height="wrap_content"
                         android:text="No" />
@@ -111,7 +111,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/length_hike"
+                android:id="@+id/update_length_hikeCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_data"
@@ -133,19 +133,19 @@
                 android:textStyle="bold"/>
 
             <Spinner
-                android:id="@+id/planets_spinner"
+                android:id="@+id/update_planets_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_data"
 
                 />
 
-<!--            <EditText-->
-<!--                android:id="@+id/level_hike"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@drawable/input_data"-->
-<!--                android:padding="5dp"/>-->
+            <!--            <EditText-->
+            <!--                android:id="@+id/level_hike"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@drawable/input_data"-->
+            <!--                android:padding="5dp"/>-->
 
         </LinearLayout>
         <TextView
@@ -157,17 +157,27 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
         <EditText
-            android:id="@+id/description_hike"
+            android:id="@+id/update_description_hikeCard"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/input_data"
             android:padding="5dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/addDetailsBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add" />
+    <Button
+        android:id="@+id/update_addDetailsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/update_backDetailsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+</LinearLayout>
 
     </LinearLayout>
 
