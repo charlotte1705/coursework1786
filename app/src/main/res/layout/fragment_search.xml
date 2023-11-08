@@ -21,7 +21,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/Search_editText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"

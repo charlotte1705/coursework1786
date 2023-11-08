@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AddFragment">
     <LinearLayout
         android:layout_width="match_parent"
@@ -118,36 +119,20 @@
                 android:padding="5dp" />
 
         </LinearLayout>
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:hint="@string/level_hike"
+            app:hintTextColor="@color/black">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:textAlignment="textStart"
-                android:text="@string/level_hike"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-            <Spinner
-                android:id="@+id/update_planets_spinner"
+            <AutoCompleteTextView
+                android:id="@+id/update_level_hike"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_data"
+                android:layout_height="match_parent"
+                android:inputType="none" />
 
-                />
-
-            <!--            <EditText-->
-            <!--                android:id="@+id/level_hike"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:background="@drawable/input_data"-->
-            <!--                android:padding="5dp"/>-->
-
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

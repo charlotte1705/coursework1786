@@ -35,7 +35,7 @@ public class UpdateFragment extends Fragment {
     private long id;
 
     HikeDao hikeDao;
-    Spinner updateLevel;
+    EditText updateLevel;
     RadioButton updateRadioYes,updateRadioNo;
     private View view;
     EditText updateName, updateLocation, updateDate, updateLength, updateDescription;
@@ -72,9 +72,6 @@ public class UpdateFragment extends Fragment {
     }
 
 
-
-
-
     public void getData() {
         getParentFragmentManager().setFragmentResultListener("hike_data", this, new FragmentResultListener() {
             @Override
@@ -83,10 +80,11 @@ public class UpdateFragment extends Fragment {
                 updateLocation = view.findViewById(R.id.update_name_locationCard);
                 updateDate = view.findViewById(R.id.update_date_hikeCard);
                 updateLength = view.findViewById(R.id.update_length_hikeCard);
+                updateLevel = view.findViewById(R.id.update_level_hike);
                 updateDescription = view.findViewById(R.id.update_description_hikeCard);
                 updateRadioYes = view.findViewById(R.id.update_radioYes);
                 updateRadioNo = view.findViewById(R.id.update_radioNo);
-                updateLevel = view.findViewById(R.id.update_planets_spinner);
+
 
                 id = result.getLong("id");
                 // Assuming appDatabase is your Room database
@@ -105,29 +103,19 @@ public class UpdateFragment extends Fragment {
                 }
                 length = result.getString("length");
                 updateLength.setText(length);
+
                 level = result.getString("level");
-                // Set the selected item in the Spinner
-                /*int position = getPositionInSpinner(updateLevel, level);
-                if (position != -1) {
-                    updateLevel.setSelection(position);
-                }*/
+                updateLevel.setText(level);
+
+                //level
+
                 description = result.getString("description");
                 updateDescription.setText(description);
 
             }
         });
     }
-    private int getPositionInSpinner(Spinner spinner, String value) {
-        if (spinner != null) {
-            SpinnerAdapter adapter = spinner.getAdapter();
-            for (int i = 0; i < adapter.getCount(); i++) {
-                if (value.equals(adapter.getItem(i).toString())) {
-                    return i; // Return the position if the value is found
-                }
-            }
-        }
-        return -1; // Return -1 if the value is not found or the Spinner is null
-    }
+
 
     public Hike setData(){
 
@@ -140,7 +128,7 @@ public class UpdateFragment extends Fragment {
             parking = "no";
         }
         length = updateLength.getText().toString();
-        /*level = updateLevel.getText().toString();*/
+        level = updateLevel.getText().toString();
         description = updateDescription.getText().toString();
         Hike hike = new Hike(id,name,location,date,parking,length,level,description);;
         return hike;

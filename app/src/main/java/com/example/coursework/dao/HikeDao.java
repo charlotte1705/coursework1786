@@ -17,7 +17,7 @@ public interface HikeDao {
     @Insert
     long insertHike(Hike hike);
 
-    @Query("SELECT * FROM hikes ORDER BY hike_name")
+    @Query("SELECT * FROM hikes ORDER BY hike_id")
     List<Hike> getAllHikes();
     @Query("SELECT * FROM hikes WHERE hike_id = :id")
     Hike getHikeById(long id);

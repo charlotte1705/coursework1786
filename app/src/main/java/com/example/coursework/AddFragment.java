@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -23,37 +24,12 @@ import com.example.coursework.models.Hike;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddFragment# newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AddFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AddFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     private AppDatabase appDatabase;
     List<Hike> hikes;
+    ArrayAdapter<String> arrayAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,35 +40,17 @@ public class AddFragment extends Fragment {
                 .build();
 
         Button addDetailsBtn = view.findViewById(R.id.addDetailsBtn);
-        Spinner spinner = view.findViewById(R.id.planets_spinner);
+        String[] items = getResources().getStringArray(R.array.level_array);
+        AutoCompleteTextView levelTxt = view.findViewById(R.id.level_hike);
+        arrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.droplist, items);
+        levelTxt.setAdapter(arrayAdapter);
+
         addDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveDetails();
             }
         });
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(), R.array.planets_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Handle the selected item
-                String selectedItem = adapter.getItem(position).toString();
-                // You can do something with the selected item here
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Handle the case where nothing is selected
-            }
-        });
-
-
-
-
-
-
 
         return view;
     }
@@ -107,8 +65,7 @@ public class AddFragment extends Fragment {
         EditText locationTxt = getView().findViewById(R.id.name_location);
         EditText dateTxt = getView().findViewById(R.id.date_hike);
         EditText lengthTxt = getView().findViewById(R.id.length_hike);
-//        EditText levelTxt = getView().findViewById(R.id.level_hike);
-        Spinner levelSpinner = getView().findViewById(R.id.planets_spinner);
+        AutoCompleteTextView levelTxt = getView().findViewById(R.id.level_hike);
         EditText descriptionTxt = getView().findViewById(R.id.description_hike);
         RadioButton yes = getView().findViewById(R.id.radioYes);
         RadioButton no = getView().findViewById(R.id.radioNo);
@@ -126,8 +83,7 @@ public class AddFragment extends Fragment {
         String location = locationTxt.getText().toString();
         String date = dateTxt.getText().toString();
         String length = lengthTxt.getText().toString();
-//        String level = levelTxt.getText().toString();
-        String level = levelSpinner.getSelectedItem().toString();
+        String level = levelTxt.getText().toString();
         String description = descriptionTxt.getText().toString();
 
         Hike hike = new Hike();
