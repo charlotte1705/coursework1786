@@ -12,6 +12,7 @@ import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.coursework.activities.ContactAdapter;
@@ -19,12 +20,6 @@ import com.example.coursework.database.AppDatabase;
 import com.example.coursework.models.Hike;
 
 import java.util.List;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment# } factory method to
- * create an instance of this fragment.
- */
 
 
 public class HomeFragment extends Fragment implements ContactAdapter.OnClickListener {
@@ -51,9 +46,12 @@ public class HomeFragment extends Fragment implements ContactAdapter.OnClickList
         adapter = new ContactAdapter(getContext(),hikes, this);
         recyclerView.setAdapter(adapter);
 
+        Button deleteAll = v.findViewById(R.id.buttonDeleteAll);
+        deleteAll.setOnClickListener(view -> {
+            onDeleteALlClick();
+        });
+
         return v;
-
-
     }
 
     @Override
@@ -72,20 +70,7 @@ public class HomeFragment extends Fragment implements ContactAdapter.OnClickList
                 .show();
     }
 
-//    @Override
-//    public  void onDeleteAllClick(Hike hike){
-//        new AlertDialog.Builder(getContext())
-//                .setTitle("Delete All Contact")
-//                .setMessage(("Confirm Delete all contact:"))
-//                .setPositiveButton("Delete All",(dialog, which) ->{
-//                    appDatabase.hikeDao().deleteHike(hike);
-//                    hikes.removeAll(hike);
-//                    adapter.notifyDataSetChanged();
-//                })
-//                .setNegativeButton("Cancel",null)
-//                .show();
-//
-//    }
+
     public void changeFragment(Fragment fragment){
         FragmentTransaction ft = getParentFragmentManager().beginTransaction();
         ft.replace(R.id.framelayout, fragment);
@@ -103,5 +88,20 @@ public class HomeFragment extends Fragment implements ContactAdapter.OnClickList
         result.putString("level", hike.hike_level);
         result.putString("description", hike.hike_description);
         getParentFragmentManager().setFragmentResult("hike_data",result);
+    }
+
+
+
+    public void onDeleteALlClick() {
+        new AlertDialog.Builder(getContext())
+                .setTitle("Delete All Contact")
+                .setMessage(("Confirm Delete all contact:"))
+                .setPositiveButton("Delete All",(dialog, which) ->{
+                    appDatabase.hikeDao().deleteAllHikes();
+                    hikes.removeAll(hikes);
+                    adapter.notifyDataSetChanged();
+                })
+                .setNegativeButton("Cancel",null)
+                .show();
     }
 }

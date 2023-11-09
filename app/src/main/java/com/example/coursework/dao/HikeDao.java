@@ -24,7 +24,8 @@ public interface HikeDao {
 
     @Delete
     void deleteHike(Hike hike);
-    void deleteAllHikes(Hike hike);
+    @Query("DELETE FROM hikes" )
+    void deleteAllHikes();
 
 
     @Update

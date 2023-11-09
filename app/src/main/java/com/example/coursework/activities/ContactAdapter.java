@@ -58,15 +58,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             onClickListener.sendData(hike);
             onClickListener.changeFragment(new UpdateFragment());
         });
-//
+
 
     }
     public interface OnClickListener {
         void onDeleteClick(Hike hike);
         void changeFragment(Fragment fragment);
         void sendData(Hike hike);
-//        void onDeleteALlClick(Hike);
-
     }
 
 
@@ -78,7 +76,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
         TextView name, location, date, length, level, description, parking;
         Button delete;
-        Button deleteAll;
+
         Button update;
 
         public ContactViewHolder(@NonNull View itemView) {
@@ -92,7 +90,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             description = itemView.findViewById(R.id.descriptionCard);
             delete = itemView.findViewById(R.id.delete_btn);
             update = itemView.findViewById(R.id.update_btn);
-            deleteAll = itemView.findViewById(R.id.buttonDeleteAll);
         }
     }
 }

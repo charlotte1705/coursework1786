@@ -27,6 +27,8 @@ public class Hike {
     }
 
     public Hike(){}
+
+
 //    public String getHikeName() {
 //        return hike_name;
 //    }
