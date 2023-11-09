@@ -27,60 +27,60 @@ public class Hike {
     }
 
     public Hike(){}
-    public String getHikeName() {
-        return hike_name;
-    }
-
-    public void setHikeName(String hikeName) {
-        this.hike_name = hikeName;
-    }
-
-    public String getHikeLocation() {
-        return hike_location;
-    }
-
-    public void setHikeLocation(String hikeLocation) {
-        this.hike_location = hikeLocation;
-    }
-    public String getHikeDate() {
-        return hike_date;
-    }
-
-    public void setHikeDate(String hikeDate) {
-        this.hike_date = hikeDate;
-    }
-
-    public String getHikeParking() {
-        return hike_parking;
-    }
-
-    public void setHikeParking(String hikeParking) {
-        this.hike_parking = hikeParking;
-    }
-
-    public String getHikeLength() {
-        return hike_length;
-    }
-
-    public void setHikeLength(String hikeLength) {
-        this.hike_length = hikeLength;
-    }
-
-    public String getHikeLevel() {
-        return hike_level;
-    }
-
-    public void setHikeLevel(String hikeLevel) {
-        this.hike_level = hikeLevel;
-    }
-
-    public String getHikeDescription() {
-        return hike_description;
-    }
-
-    public void setHikeDescription(String hikeDescription) {
-        this.hike_description = hikeDescription;
-    }
+//    public String getHikeName() {
+//        return hike_name;
+//    }
+//
+//    public void setHikeName(String hikeName) {
+//        this.hike_name = hikeName;
+//    }
+//
+//    public String getHikeLocation() {
+//        return hike_location;
+//    }
+//
+//    public void setHikeLocation(String hikeLocation) {
+//        this.hike_location = hikeLocation;
+//    }
+//    public String getHikeDate() {
+//        return hike_date;
+//    }
+//
+//    public void setHikeDate(String hikeDate) {
+//        this.hike_date = hikeDate;
+//    }
+//
+//    public String getHikeParking() {
+//        return hike_parking;
+//    }
+//
+//    public void setHikeParking(String hikeParking) {
+//        this.hike_parking = hikeParking;
+//    }
+//
+//    public String getHikeLength() {
+//        return hike_length;
+//    }
+//
+//    public void setHikeLength(String hikeLength) {
+//        this.hike_length = hikeLength;
+//    }
+//
+//    public String getHikeLevel() {
+//        return hike_level;
+//    }
+//
+//    public void setHikeLevel(String hikeLevel) {
+//        this.hike_level = hikeLevel;
+//    }
+//
+//    public String getHikeDescription() {
+//        return hike_description;
+//    }
+//
+//    public void setHikeDescription(String hikeDescription) {
+//        this.hike_description = hikeDescription;
+//    }
 
 }
 

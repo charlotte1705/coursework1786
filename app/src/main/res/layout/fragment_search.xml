@@ -21,7 +21,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/Search_editText"
+            android:id="@+id/search_editText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:ems="10"
@@ -51,6 +51,7 @@
             android:text="Result" />
 
 <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/Recyclerview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
 

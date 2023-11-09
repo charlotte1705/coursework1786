@@ -28,8 +28,8 @@ import java.util.List;
 public class AddFragment extends Fragment {
 
     private AppDatabase appDatabase;
+    private ContactAdapter adapter;
     List<Hike> hikes;
-    ArrayAdapter<String> arrayAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class AddFragment extends Fragment {
         Button addDetailsBtn = view.findViewById(R.id.addDetailsBtn);
         String[] items = getResources().getStringArray(R.array.level_array);
         AutoCompleteTextView levelTxt = view.findViewById(R.id.level_hike);
-        arrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.droplist, items);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.droplist, items);
         levelTxt.setAdapter(arrayAdapter);
 
         addDetailsBtn.setOnClickListener(new View.OnClickListener() {
@@ -54,10 +54,6 @@ public class AddFragment extends Fragment {
 
         return view;
     }
-
-
-
-
 
 
     private void saveDetails(){
@@ -86,6 +82,17 @@ public class AddFragment extends Fragment {
         String level = levelTxt.getText().toString();
         String description = descriptionTxt.getText().toString();
 
+        // Build the message to display in the AlertDialog
+        StringBuilder messageBuilder = new StringBuilder();
+        messageBuilder.append("Name: ").append(name).append("\n");
+        messageBuilder.append("Location: ").append(location).append("\n");
+        messageBuilder.append("Date: ").append(date).append("\n");
+        messageBuilder.append("Length: ").append(length).append("\n");
+        messageBuilder.append("Level: ").append(level).append("\n");
+        messageBuilder.append("Parking: ").append(radioSelect);
+        messageBuilder.append("Description: ").append(description).append("\n");
+
+
         Hike hike = new Hike();
         hike.hike_name = name;
         hike.hike_location = location;
@@ -95,11 +102,20 @@ public class AddFragment extends Fragment {
         hike.hike_level = level;
         hike.hike_description = description;
 
+        // Create and show the AlertDialog
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+        alertDialogBuilder.setTitle("Details to be Added");
+        alertDialogBuilder.setMessage(messageBuilder.toString());
+        alertDialogBuilder.setPositiveButton("Add", (dialog, which) -> {
         long hike_id = appDatabase.hikeDao().insertHike(hike);
         Toast.makeText(getContext(), "Hike has been created with id: " + hike_id,
                 Toast.LENGTH_LONG
         ).show();
-    }
+    });
+       alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+        // Cancel action
+    });
 
+    alertDialogBuilder.create().show();
 
-}
+}}

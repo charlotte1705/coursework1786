@@ -51,9 +51,6 @@ public class HomeFragment extends Fragment implements ContactAdapter.OnClickList
         adapter = new ContactAdapter(getContext(),hikes, this);
         recyclerView.setAdapter(adapter);
 
-        // Find the button in the layout
-     //   Button updateButton = v.findViewById(R.id.update_btn);
-
         return v;
 
 
@@ -74,6 +71,21 @@ public class HomeFragment extends Fragment implements ContactAdapter.OnClickList
                 .setNegativeButton("Cancel", null)
                 .show();
     }
+
+//    @Override
+//    public  void onDeleteAllClick(Hike hike){
+//        new AlertDialog.Builder(getContext())
+//                .setTitle("Delete All Contact")
+//                .setMessage(("Confirm Delete all contact:"))
+//                .setPositiveButton("Delete All",(dialog, which) ->{
+//                    appDatabase.hikeDao().deleteHike(hike);
+//                    hikes.removeAll(hike);
+//                    adapter.notifyDataSetChanged();
+//                })
+//                .setNegativeButton("Cancel",null)
+//                .show();
+//
+//    }
     public void changeFragment(Fragment fragment){
         FragmentTransaction ft = getParentFragmentManager().beginTransaction();
         ft.replace(R.id.framelayout, fragment);
