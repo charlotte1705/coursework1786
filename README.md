@@ -9,3 +9,5 @@ They have these function as below:
   Update details
   Delete and Delete All hikes
   Search Card Items
+This is my video demo:
+https://drive.google.com/file/d/1idBZsjQlMFtThgOkU0ul_9R6vsDQL17S/view?usp=sharing
